@@ -2,10 +2,11 @@ require 'data_mapper'
 require 'sinatra'
 require 'rack-flash'
 require_relative './data_mapper_setup'
+require_relative './helpers/application_helper'
 
 class Chitter < Sinatra::Base
 
-  # helpers AnyHelpers
+  helpers ApplicationHelpers
 
   enable :sessions
   set :session_secret, 'super secret'
@@ -13,7 +14,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    'Hello World!'
+    erb :index
   end
 
   get '/sign_up' do
