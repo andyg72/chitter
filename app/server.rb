@@ -17,8 +17,29 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  delete '/sessions' do
+    session.clear
+    flash[:notice] = "Goodbye, see you again soon!"
+    redirect to('/')
+  end
+
   get '/sign_up' do
     erb :sign_up
+  end
+
+  get '/sign_in' do
+    erb :sign_in
+  end
+
+  post '/sign_in' do
+    email, password = params[:email], params[:password]
+    @user = User.authenticate(email, password)
+    if @user
+      session[:user_id] = @user.id
+      redirect to('/')
+    else
+      flash.now[:errors] = @user.errors.full_messages
+    end
   end
 
   post '/registration' do
@@ -32,6 +53,7 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @user.errors.full_messages
     end
   end
+
 
 
 end
