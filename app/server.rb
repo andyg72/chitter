@@ -38,7 +38,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/')
     else
-      flash.now[:errors] = @user.errors.full_messages
+      flash.now[:errors] = ['Failed to log in with those details, please try again']
     end
   end
 
@@ -50,7 +50,8 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/')
     else
-      flash.now[:errors] = @user.errors.full_messages
+      flash[:errors] = @user.errors.full_messages
+      redirect to('/sign_up')
     end
   end
 
