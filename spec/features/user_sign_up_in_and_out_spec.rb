@@ -1,12 +1,11 @@
-require 'spec_helper'
+require_relative '../spec_helper'
 
 # include Helpers
 
 feature 'User Sign Up' do
    
   scenario 'a unique user is able to sign-up to a chitter account' do
-    visit '/'
-    click_button('Sign up')
+    visit '/sign_up'
     fill_in 'email', with: 'test@test.com'
     fill_in 'name', with: 'Test Test'
     fill_in 'username', with: 'tester'

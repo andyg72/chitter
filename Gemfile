@@ -6,7 +6,7 @@ gem 'sinatra'
 gem 'bcrypt-ruby'
 gem 'rack-flash3'
 
-group :test do
+group :test, :development do
   gem 'rspec'
   gem 'database_cleaner'
   gem 'capybara'
