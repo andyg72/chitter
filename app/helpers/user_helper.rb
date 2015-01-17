@@ -11,4 +11,19 @@ module UserActions
     click_on("Register now")
   end
 
+  def sign_up_and_sign_out(email = 'test@test.com', name = 'Test Test', username = 'tester',
+    password = 'test1234', password_confirmation='test1234')
+    sign_up(email, name, username, password, password_confirmation)
+    visit '/'
+    click_button("Sign out")
+end
+
+  def sign_in(email = 'test@test.com', password = 'test1234')
+    visit '/'
+    click_on("Sign in")
+    fill_in 'email', with: email
+    fill_in 'password', with: password
+    click_button("Sign in now")
+  end
+
 end

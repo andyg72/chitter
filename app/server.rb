@@ -55,6 +55,19 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/peeps' do
+    @user_id = session[:user_id]
+    erb :compose_peep
+  end
+
+  post '/peeps/post' do
+    @peep = Peep.create(user_id: params[:user_id], peep_text: params[:peep_text], peep_timestamp: Time.now)
+    if @peep.save
+      redirect to('/')
+    else
+      flash.now[:errors] = @peeps.errors.full_messages
+    end
+  end
 
 
 end
