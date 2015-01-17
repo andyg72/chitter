@@ -10,7 +10,7 @@ class User
   property :username, String, unique: true, message: 'This username already has an account'
   property :password_digest, Text
 
-  has n, :peeps #, :through => Resource
+  has n, :peeps
 
   attr_reader :password
   attr_accessor :password_confirmation

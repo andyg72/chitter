@@ -14,8 +14,4 @@ feature 'Peeps' do
     expect(page).to have_content('This is a peep')
   end
 
-  xscenario ' a user who is not signed in gets redirected to sign in or sign up if they try to post' do 
-    expect(page).to have_content('You must either sign in or sign up before you peep')
-  end
-
 end

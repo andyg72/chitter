@@ -1,10 +1,8 @@
-<section class="peep-display">
-
-  <% @last_ten_peeps.each do | peep | %>
-  <section class="peep">
-    <%= "#{peep.username} peeped: #{peep.peep_text} at #{peep.peep_timestamp}" %>
-  </section>
+Current links:
+<ul>
+  <% @last_ten_peeps.each_with_index do |peep, i| %>
+    <%= "#{i+1}. #{User.first(id: peep.user_id).username} peeped: #{peep.peep_text} at #{peep.peep_timestamp.strftime("%H:%M on %A %B %d %Y")}" %>
   <% end %>
-</section>
-Also link to create a new peep
+</ul>
+
 Also link to see older peeps
