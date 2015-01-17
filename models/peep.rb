@@ -7,5 +7,6 @@ class Peep
   property :peep_timestamp, Time
 
   belongs_to :user
+  has n, :responses
 
 end
