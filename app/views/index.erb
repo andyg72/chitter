@@ -1,3 +1,10 @@
-Put most recent 10 peeps here
+<section class="peep-display">
+
+  <% @last_ten_peeps.each do | peep | %>
+  <section class="peep">
+    <%= "#{peep.username} peeped: #{peep.peep_text} at #{peep.peep_timestamp}" %>
+  </section>
+  <% end %>
+</section>
 Also link to create a new peep
 Also link to see older peeps

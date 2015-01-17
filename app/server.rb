@@ -14,7 +14,12 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    erb :index
+    @last_10_peeps = Peep.all(limit: 10, order: [:peep_timestamp.desc])
+    if @last_10_peeps.empty?
+      flash[:notice] = "There are no peeps to show you"
+    else
+      erb :index
+    end
   end
 
   delete '/sessions' do
