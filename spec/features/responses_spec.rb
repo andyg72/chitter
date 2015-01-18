@@ -9,7 +9,7 @@ feature 'Responses' do
     sign_up
     post_a_peep(3)
     expect(page).to have_content('respond')
-    click_on('respond_0')
+    page.all(:link,"respond")[0].click
     expect(page).to have_content('enter your response')
   end
 
