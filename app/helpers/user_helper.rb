@@ -26,11 +26,19 @@ end
     click_button("Sign in now")
   end
 
-  def post_a_peep(n = 1)
-    n.times do |n|
+  def post_a_peep(n = 1, peep_text = 'This is a test peep')
+    n.times do |i|
       click_on("Compose a Peep")
-      fill_in 'peep_text', with: "This is a test peep #{n+1}"
+      fill_in 'peep_text', with: peep_text+" #{i+1}"
       click_on('Post your peep')
+    end
+  end
+
+  def post_a_reply(n = 1, reply_text = 'This is a test reply')
+    n.times do |i|
+      click_on('reply')
+      fill_in 'reply_text', with: reply_text+" #{i+1}"
+      click_on('Post your reply')
     end
   end
 
