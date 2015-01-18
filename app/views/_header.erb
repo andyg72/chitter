@@ -1,17 +1,17 @@
 <header>
-  <section id="logo">ChitterAndy</section>
-  <section id="user-links">
+  <section id="logo">ChitterAndy
     <% if current_user %>  
-      <span id="welcome-message">
-        You are currently signed in as <%= current_user.username %>
-      </span>
-      <form id="sign-out" action="/sessions" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Sign out">
-      </form>
-      <form id="compose-peep-button" action="/peeps" method="get">
-        <input type="submit" value="Compose a Peep">
-      </form>
+      <span id="welcome-message"><p>
+        You are currently signed in as <%= current_user.username %></p></span>
+      </section>
+      <section id="user-links">
+        <form id="sign-out" action="/sessions" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Sign out">
+        </form>
+        <form id="compose-peep-button" action="/peeps" method="get">
+          <input type="submit" value="Compose a Peep">
+        </form>
     <% else %>
       <a href='/sign_up' id='sign-up' class='button'>Sign up</a>
       <a href='/sign_in' id='sign-in' class='button'>Sign in</a>      

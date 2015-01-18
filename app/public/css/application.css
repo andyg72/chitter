@@ -1,0 +1,33 @@
+body {
+  background-color: Gainsboro;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 1em;
+  height: auto;
+}
+
+header {
+  background-color: DarkOliveGreen;
+  color: white;
+  height: 60px;
+  display: flex;
+  padding: 10px;
+}
+
+  header > * {
+    margin: auto 0;
+  }
+
+  header #logo {
+    display: flex;
+    font-size: 2em;
+  }
+
+    header #logo #welcome-message {
+      font-size: 1em;
+    }
+
+  header #user-links {
+    flex: 1;
+    -webkit-flex: 1;
+    text-align: right;
+  }
