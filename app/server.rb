@@ -70,5 +70,20 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/peeps/create_reply/:peep_id' do
+    @peep_id = params[:peep_id]
+    @user_id = session[:user_id]
+    erb :compose_reply
+  end
+
+  post '/peeps/post_reply' do
+    puts params[:reply_text]
+    puts params[:user_id]
+    puts params[:peep_id]
+    @reply = Reply.create(reply_text: params[:reply_text], reply_timestamp: Time.now, 
+      user_id: params[:user_id], peep_id: params[:peep_id])
+    redirect to('/')
+  end
+
 
 end

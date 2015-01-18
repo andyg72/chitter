@@ -6,7 +6,7 @@
     <tr class="peep-text"><td><%= "#{peep.peep_text}" %></td></tr>
     <tr class="peep-time"><td><%= "at #{peep.peep_timestamp.strftime("%H:%M on %A %B %d %Y")}" %></td></tr>
     <tr class="peep-response-link"><td><li>
-            <a href="<%= "/peeps/respond/#{peep.id}" %>" value=<%= "respond_#{i}" %>><%= "respond" %></a></li></td></tr>
+            <a href="<%= "/peeps/create_reply/#{peep.id}" %>"><%= "reply" %></a></li></td></tr>
   <% end %>
 </table>
 Also link to see older peeps

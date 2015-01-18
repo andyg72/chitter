@@ -11,7 +11,7 @@ class User
   property :password_digest, Text
 
   has n, :peeps
-  has n, :responses
+  has n, :replies
 
   attr_reader :password
   attr_accessor :password_confirmation

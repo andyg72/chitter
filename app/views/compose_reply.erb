@@ -1,0 +1,18 @@
+<table class="peeps-table">
+  <th>Replying to:</th>
+    <% peep = Peep.first(id: @peep_id) %>
+    <% user = User.first(id: peep.user_id) %>
+    <tr class="peeps-user"><td><%= "#{user.name} (#{user.username}) peeped:" %></td></tr>
+    <tr class="peep-text"><td><%= "#{peep.peep_text}" %></td></tr>
+    <tr class="peep-time"><td><%= "at #{peep.peep_timestamp.strftime("%H:%M on %A %B %d %Y")}" %></td></tr>
+</table>
+
+<form id="compose-reply" action='/peeps/post_reply' method="post">
+  Compose your reply (try to keep below 140ish characters)
+  <input type="submit" value="Post your reply">
+  <input type="hidden" name="user_id" value=<%= "#{@user_id}" %>>
+  <input type="hidden" name="peep_id" value=<%= "#{@peep_id}" %>>
+</form>
+<textarea rows="3" cols="50" name="reply_text" form="compose-reply">
+  Put your reply here...
+</textarea>
