@@ -31,3 +31,10 @@ header {
     -webkit-flex: 1;
     text-align: right;
   }
+
+table #peeps-table {
+  border-width: 2px;
+  border-color: DarkOliveGreen;
+  font-size: 3em;
+  padding: 5px;
+}

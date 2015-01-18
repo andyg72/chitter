@@ -2,11 +2,11 @@
   <th>Latest peeps:</th>
   <% @last_ten_peeps.each_with_index do |peep, i| %>
     <% user = User.first(id: peep.user_id) %>
-    <tr class="peeps-user"><td><%= "#{user.name} (#{user.username}) peeped:" %></td></tr>
+    <tr class="peeps-user"><td><%= "#{user.name} (#{user.username}) peeped:" %></td>
+      <td class="peep-response-link" rowspan="3">
+        <a href="<%= "/peeps/create_reply/#{peep.id}" %>"><%= "reply" %></a></td></tr>
     <tr class="peep-text"><td><%= "#{peep.peep_text}" %></td></tr>
     <tr class="peep-time"><td><%= "at #{peep.peep_timestamp.strftime("%H:%M on %A %B %d %Y")}" %></td></tr>
-    <tr class="peep-response-link"><td>
-            <a href="<%= "/peeps/create_reply/#{peep.id}" %>"><%= "reply" %></a></td></tr>
     <% reply = Reply.all(peep_id: peep.id, order: [:reply_timestamp.asc]) %>
     <% reply.each do |reply| %>
       <% user = User.first(id: reply.user_id) %>
@@ -16,4 +16,4 @@
     <% end %>
   <% end %>
 </table>
-Also link to see older peeps
+
