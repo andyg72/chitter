@@ -26,4 +26,12 @@ end
     click_button("Sign in now")
   end
 
+  def post_a_peep(n = 1)
+    n.times do |n|
+      click_on("Compose a Peep")
+      fill_in 'peep_text', with: "This is a test peep #{n+1}"
+      click_on('Post your peep')
+    end
+  end
+
 end

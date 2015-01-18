@@ -7,5 +7,6 @@ class Response
   property :response_timestamp, Time
 
   belongs_to :peep
+  belongs_to :user
 
 end
