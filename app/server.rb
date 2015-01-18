@@ -66,7 +66,7 @@ class Chitter < Sinatra::Base
     if @peep.save
       redirect to('/')
     else
-      flash.now[:errors] = @peeps.errors.full_messages
+      flash.now[:errors] = @peep.errors.full_messages
     end
   end
 
@@ -77,12 +77,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/post_reply' do
-    puts params[:reply_text]
-    puts params[:user_id]
-    puts params[:peep_id]
     @reply = Reply.create(reply_text: params[:reply_text], reply_timestamp: Time.now, 
       user_id: params[:user_id], peep_id: params[:peep_id])
-    redirect to('/')
+    if @reply.save
+      redirect to('/')
+    else
+      flash.now[:errors] = @reply.errors.full_messages
+    end
   end
 
 

@@ -7,6 +7,13 @@
     <tr class="peep-time"><td><%= "at #{peep.peep_timestamp.strftime("%H:%M on %A %B %d %Y")}" %></td></tr>
     <tr class="peep-response-link"><td><li>
             <a href="<%= "/peeps/create_reply/#{peep.id}" %>"><%= "reply" %></a></li></td></tr>
+    <% reply = Reply.all(peep_id: peep.id, order: [:reply_timestamp.asc]) %>
+    <% reply.each do |reply| %>
+      <% user = User.first(id: reply.user_id) %>
+      <tr class="response-user"><td><%= "#{user.name} (#{user.username}) replied:" %></td></tr>
+      <tr class="response-text"><td><%= "#{reply.reply_text}" %></td></tr>
+      <tr class="response-time"><td><%= "at #{reply.reply_timestamp.strftime("%H:%M on %A %B %d %Y")}" %></td></tr>
+    <% end %>
   <% end %>
 </table>
 Also link to see older peeps
