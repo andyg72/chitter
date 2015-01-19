@@ -17,14 +17,15 @@ header {
     margin: auto 0;
   }
 
-  header #logo {
-    display: flex;
-    font-size: 2em;
-    margin-left: 50px;
-  }
+    #logo {
+/*    display: flex;*/
+      font-size: 2em;
+      margin-left: 10%;
+    }
 
     #welcome-message {
-      font-size: 1em;
+      font-size: 50%;
+      padding-top: -5px;
     }
 
     #user-links {
@@ -35,15 +36,15 @@ header {
 
     #sign-up, #sign-in {
       border-radius: 5px;
-      border: 2px solid #6495ED;
-      background-color: #BCD2EE;
-      height: 30px;
+      border: 2px solid LightSteelBlue;
+      background-color: LightSteelBlue;
       width: 100px;
       margin-top: 5px;
       margin-bottom: 25px;
-      margin-right: 30px;
       text-align: center;
-      font-size: 70%;
+      font-size: 60%;
+      text-decoration: none;
+      padding: 5px;
       }
 
       #sign-in {
@@ -51,7 +52,7 @@ header {
       }
 
       #sign-up {
-        margin-left: 550px;
+        margin-left: 560px;
       }
 
 #peeps-table {
@@ -108,8 +109,8 @@ header {
 
 #peep-reply-link {
       border-radius: 5px;
-      border: 2px solid #6495ED;
-      background-color: #BCD2EE;
+      border: 2px solid LightSteelBlue;
+      background-color: LightSteelBlue;
       font-size: 80%;
       text-decoration: none;
       padding: 5px;
@@ -129,3 +130,4 @@ header {
   border-top-width: 2px;
   border-top-color: DarkOliveGreen;
 }
+
