@@ -25,8 +25,7 @@ header {
 
     #welcome-message {
       font-size: 50%;
-      padding-top: -5px;
-    }
+      }
 
     #user-links {
     flex: 1;
