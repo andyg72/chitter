@@ -28,5 +28,10 @@ feature 'User Sign Out and In' do
     sign_in(email = 'new_test@test.com', password = 'test1234')
     expect(page).to have_content('Failed to log in with those details, please try again')    
   end
+
+  scenario 'a user can log out' do
+    sign_up_and_sign_out
+    expect(page).to have_content('Goodbye, see you again soon!')
+  end
   
 end

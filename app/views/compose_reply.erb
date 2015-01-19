@@ -1,10 +1,10 @@
-<table class="peeps-table">
-  <th>Replying to:</th>
+<table id="peeps-table">
+  <th colspan="3">Replying to:</th>
     <% peep = Peep.first(id: @peep_id) %>
     <% user = User.first(id: peep.user_id) %>
-    <tr class="peeps-user"><td><%= "#{user.name} (#{user.username}) peeped:" %></td></tr>
-    <tr class="peep-text"><td><%= "#{peep.peep_text}" %></td></tr>
-    <tr class="peep-time"><td><%= "at #{peep.peep_timestamp.strftime("%H:%M on %A %B %d %Y")}" %></td></tr>
+    <tr><td id="peep-user"><%= "#{user.name} (#{user.username}) peeped:" %></td>
+        <td id="peep-text"><%= "#{peep.peep_text}" %></td>
+        <td id="peep-time"><%= "at #{peep.peep_timestamp.strftime("%H:%M on %A %B %d %Y")}" %></td></tr>
 </table>
 
 <form id="compose-reply" action='/peeps/post_reply' method="post">

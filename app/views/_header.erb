@@ -5,12 +5,12 @@
         You are currently signed in as <%= current_user.username %></span>
   </section>
   <section id="user-links">
-    <form id="sign-out" action="/sessions" method="post">
+    <form action="/sessions" method="post">
       <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Sign out">
+      <input id="sign-out" type="submit" value="Sign out">
     </form>
-      <form id="compose-peep-button" action="/peeps" method="get">
-      <input type="submit" value="Compose a Peep">
+      <form action="/peeps" method="get">
+      <input id="compose-peep-button" type="submit" value="Compose a Peep">
       </form>
     <% else %>
       <a href='/sign_up' id='sign-up' class='button'>Sign up</a>

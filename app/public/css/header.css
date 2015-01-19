@@ -1,0 +1,58 @@
+header {
+  background-color: DarkOliveGreen;
+  color: white;
+  height: 60px;
+  display: flex;
+  padding: 10px;
+}
+
+/*  header > * {
+    margin: auto 0;
+  }*/
+
+    #logo {
+/*    display: flex;*/
+      font-size: 2em;
+      margin-left: 10%;
+    }
+
+    #welcome-message {
+      font-size: 50%;
+      }
+
+/*    #user-links {
+    text-align: right;
+    }*/
+
+    form {
+      width: 30%
+    }
+
+    #sign-up, #sign-in, #sign-out, #compose-peep-button {
+      border-radius: 5px;
+      border: 2px solid LightSteelBlue;
+      background-color: LightSteelBlue;
+      width: 100px;
+      margin-top: 5px;
+      margin-bottom: 25px;
+      text-align: center;
+      font-size: 60%;
+      text-decoration: none;
+      padding: 5px;
+      }
+
+      #sign-in {
+        margin-left: 30px;
+      }
+
+      #sign-up {
+        margin-left: 560px;
+      }
+
+      #sign-out {
+        margin-right: 100px;
+      }
+
+      #compose-peep-button {
+        margin-right: 30px;
+      }
