@@ -1,0 +1,18 @@
+#flash {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#errors, #notices {
+  font-weight: bold;
+}
+
+#errors {
+  color: red;
+}
+
+#notices {
+  color:  blue;
+}
+
+

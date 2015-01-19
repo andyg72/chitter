@@ -1,0 +1,28 @@
+fieldset {
+  padding: 1em;
+  font: 80%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  }
+fieldset > label {
+  float:left;
+  width:25%;
+  margin-right:0.5em;
+  margin-top: 0.5em;
+  text-align:right;
+  font-weight:bold;
+  }
+
+fieldset > input {
+  margin-top: 0.5em;
+}
+
+fieldset > #submit {
+      border-radius: 5px;
+      border: 2px solid DarkOliveGreen;
+      background-color: DarkOliveGreen;
+      color:  white;
+      text-decoration: none;
+      padding: 5px;
+}

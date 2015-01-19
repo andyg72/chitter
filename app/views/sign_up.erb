@@ -1,8 +1,11 @@
 <form action="/sessions/registration" method="post">
-  Email: <input type="text" name="email">
-  Name: <input type="text" name="name">
-  Username: <input type="text" name="username">
-  Password: <input type="password" name="password">
-  Password Confirmation: <input type="password" name="password_confirmation">
-  <input type="submit" value="Register now">
+  <fieldset>
+    <legend>Sign up to Chitter</legend>
+    <label>Email:</label><input type="text" name="email"><br>
+    <label>Name:</label><input type="text" name="name"><br>
+    <label>Username:</label><input type="text" name="username"><br>
+    <label>Password:</label><input type="password" name="password"><br>
+    <label>Password Confirmation:</label><input type="password" name="password_confirmation">
+    <input id="submit" type="submit" value="Register now">
+  </fieldset>
 </form>

@@ -7,7 +7,7 @@
   <section id="user-links">
     <ul>
       <% if current_user %>
-        </li><form id="sign-out-form" action="/sessions/sign_out" method="post">
+        <li><form id="sign-out-form" action="/sessions/sign_out" method="post">
           <input type="hidden" name="_method" value="delete">
           <input id="sign-out" type="submit" value="Sign out">
         </form></li>

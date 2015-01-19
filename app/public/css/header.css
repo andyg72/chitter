@@ -12,10 +12,11 @@ header {
  
 #logo {
   font-size: 2em;
-  margin: 10px auto 20px auto;
+  padding-top: 20px;
   width: 50%;
-  height: 60px;
   text-align: left;
+  float: left;
+  font-variant: small-caps;
 }
 
 #logo-link:link, #logo-link:visited, #logo-link:hover, #logo-link:active {
@@ -24,22 +25,24 @@ header {
 }
 
 #welcome-message {
-  font-size: 75%;
+  font-size: 50%;
   }
 
 #user-links {
-  margin: 0px auto 0px auto;
+  float: right;
+  margin: auto 0 auto 10px;
   text-align: right;
+  height: 100px;
+  padding-top: 30px;
 /*  padding: 15px;*/
 }
 
-li {
+#user-links > ul > li {
   display: inline;
 }
 
 #sign-out-form {
-  width:  100px;
-  margin: 0 0 0 0;
+  display: inline;
 }
 
 #sign-out {
@@ -49,7 +52,6 @@ li {
 
 #sign-up, #sign-in, #compose-peep, #sign-out {
   color:  white;
-/*  width: 100px;*/
   text-align: center;
   font-size: 80%;
   text-decoration: none;

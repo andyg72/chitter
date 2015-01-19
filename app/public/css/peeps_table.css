@@ -3,13 +3,9 @@
   margin-left: auto;
   margin-right: auto; 
   width: 80%;
-  border-style: solid;
-  border-radius: 5px;
-  border-width: 2px;
-  border-color: DarkOliveGreen;
 }
 
-#peep-user, #reply-user, #peep-text, #reply-text, #peep-time, #reply-time, #peep-reply, #reply-offset, #reply-link-offset {
+#peep-user, #peep-text, #peep-time, #peep-reply {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: DarkOliveGreen;
@@ -49,10 +45,12 @@
 
 #peep-reply-link {
       border-radius: 5px;
-      border: 2px solid LightSteelBlue;
-      background-color: LightSteelBlue;
+      border: 2px solid DarkOliveGreen;
+      background-color: DarkOliveGreen;
+      color:  white;
       font-size: 80%;
       text-decoration: none;
+      padding: 5px;
 }
 
 #reply-text {
@@ -60,4 +58,8 @@
   font-size: 90%;
 }
 
-
+th {
+  text-align: left;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
