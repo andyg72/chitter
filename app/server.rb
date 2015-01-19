@@ -13,26 +13,39 @@ class Chitter < Sinatra::Base
   use Rack::Flash
   use Rack::MethodOverride
 
+  SIGNED_IN_ROUTES = ['/peeps/compose_peep', '/peeps/compose_reply']
+
+  before do
+    if request.path != '/'
+      requested_url = "/#{request.path.to_s.split('/')[1,2].join('/')}"
+      if !current_user && SIGNED_IN_ROUTES.include?(requested_url)
+        flash[:notice] = "You must be signed in first"
+        redirect '/sessions/sign_in'
+      end
+    end
+  end
+
   get '/' do
     @last_ten_peeps = Peep.all(limit:10, order: [:peep_timestamp.desc])
+    # Peeps.all.sort{|a,b| a.peep_timestamp <=> b.peep_timestamp}
     erb :index
   end
 
-  delete '/sessions' do
+  delete '/sessions/sign_out' do
     session.clear
     flash[:notice] = "Goodbye, see you again soon!"
     redirect to('/')
   end
 
-  get '/sign_up' do
+  get '/sessions/sign_up' do
     erb :sign_up
   end
 
-  get '/sign_in' do
+  get '/sessions/sign_in' do
     erb :sign_in
   end
 
-  post '/sign_in' do
+  post '/sessions/sign_in' do
     email, password = params[:email], params[:password]
     @user = User.authenticate(email, password)
     if @user
@@ -43,7 +56,7 @@ class Chitter < Sinatra::Base
     end
   end
 
-  post '/registration' do
+  post '/sessions/registration' do
     @user = User.create(email: params[:email], name: params[:name],
       username: params[:username], password: params[:password],
       password_confirmation: params[:password_confirmation])
@@ -51,17 +64,16 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/')
     else
-      flash[:errors] = @user.errors.full_messages
-      redirect to('/sign_up')
+      flash.now[:errors] = @user.errors.full_messages
     end
   end
 
-  get '/peeps' do
+  get '/peeps/compose_peep' do
     @user_id = session[:user_id]
     erb :compose_peep
   end
 
-  post '/peeps/post' do
+  post '/peeps/post_peep' do
     @peep = Peep.create(user_id: params[:user_id], peep_text: params[:peep_text], peep_timestamp: Time.now)
     if @peep.save
       redirect to('/')
@@ -70,7 +82,7 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/peeps/create_reply/:peep_id' do
+  get '/peeps/compose_reply/:peep_id' do
     @peep_id = params[:peep_id]
     @user_id = session[:user_id]
     erb :compose_reply

@@ -1,58 +1,59 @@
 header {
   background-color: DarkOliveGreen;
   color: white;
-  height: 60px;
-  display: flex;
-  padding: 10px;
+  height: 100px;
 }
 
-/*  header > * {
-    margin: auto 0;
-  }*/
+#header-container {
+  width:  80%;
+  height: 100px;
+  margin: 0 auto 0 auto;
+}
+ 
+#logo {
+  font-size: 2em;
+  margin: 10px auto 20px auto;
+  width: 50%;
+  height: 60px;
+  text-align: left;
+}
 
-    #logo {
-/*    display: flex;*/
-      font-size: 2em;
-      margin-left: 10%;
-    }
+#logo-link:link, #logo-link:visited, #logo-link:hover, #logo-link:active {
+  text-decoration: none;
+  color:  white;
+}
 
-    #welcome-message {
-      font-size: 50%;
-      }
+#welcome-message {
+  font-size: 75%;
+  }
 
-/*    #user-links {
-    text-align: right;
-    }*/
+#user-links {
+  margin: 0px auto 0px auto;
+  text-align: right;
+/*  padding: 15px;*/
+}
 
-    form {
-      width: 30%
-    }
+li {
+  display: inline;
+}
 
-    #sign-up, #sign-in, #sign-out, #compose-peep-button {
-      border-radius: 5px;
-      border: 2px solid LightSteelBlue;
-      background-color: LightSteelBlue;
-      width: 100px;
-      margin-top: 5px;
-      margin-bottom: 25px;
-      text-align: center;
-      font-size: 60%;
-      text-decoration: none;
-      padding: 5px;
-      }
+#sign-out-form {
+  width:  100px;
+  margin: 0 0 0 0;
+}
 
-      #sign-in {
-        margin-left: 30px;
-      }
+#sign-out {
+  background:DarkOliveGreen; 
+  border:0 none;
+}
 
-      #sign-up {
-        margin-left: 560px;
-      }
-
-      #sign-out {
-        margin-right: 100px;
-      }
-
-      #compose-peep-button {
-        margin-right: 30px;
-      }
+#sign-up, #sign-in, #compose-peep, #sign-out {
+  color:  white;
+/*  width: 100px;*/
+  text-align: center;
+  font-size: 80%;
+  text-decoration: none;
+  padding: 5px;
+  border-right: 2px solid white;
+  background-color: DarkOliveGreen;
+  }

@@ -6,7 +6,7 @@
       <td colspan="2" id="peep-text"><%= "#{peep.peep_text}" %></td>
       <td id="peep-time"><%= "at #{peep.peep_timestamp.strftime("%H:%M on %A %B %d %Y")}" %></td>
       <td id="peep-reply">
-        <a id="peep-reply-link" href="<%= "/peeps/create_reply/#{peep.id}" %>"><%= "reply" %></a></td></tr>
+        <a id="peep-reply-link" href="<%= "/peeps/compose_reply/#{peep.id}" %>"><%= "reply" %></a></td></tr>
     <% reply = Reply.all(peep_id: peep.id, order: [:reply_timestamp.asc]) %>
     <% reply.each do |reply| %>
       <% user = User.first(id: reply.user_id) %>

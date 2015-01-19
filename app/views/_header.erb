@@ -1,20 +1,20 @@
-<header>
-  <section id="logo">ChitterAndy
+<section id="header-container">
+  <section id="logo"><a href='/' id='logo-link'>ChitterAndy</a><br>
     <% if current_user %>  
-      <span id="welcome-message"><br>
-        You are currently signed in as <%= current_user.username %></span>
-  </section>
+      <span id="welcome-message">You are currently signed in as <%= current_user.username %></span>
+    <% end %>   
+  </section> 
   <section id="user-links">
-    <form action="/sessions" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <input id="sign-out" type="submit" value="Sign out">
-    </form>
-      <form action="/peeps" method="get">
-      <input id="compose-peep-button" type="submit" value="Compose a Peep">
-      </form>
-    <% else %>
-      <a href='/sign_up' id='sign-up' class='button'>Sign up</a>
-      <a href='/sign_in' id='sign-in' class='button'>Sign in</a>      
-    <% end %>
-  </section>
-</header>
+    <ul>
+      <% if current_user %>
+        </li><form id="sign-out-form" action="/sessions/sign_out" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input id="sign-out" type="submit" value="Sign out">
+        </form></li>
+      <% else %>
+        <li><a href='/sessions/sign_up' id='sign-up'>Sign up</a></li>
+        <li><a href='/sessions/sign_in' id='sign-in'>Sign in</a></li>   
+      <% end %>
+        <li><a href='/peeps/compose_peep' id='compose-peep'>Compose a Peep</a></li>
+    </ul>
+</section>

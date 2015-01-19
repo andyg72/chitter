@@ -2,7 +2,7 @@ module UserActions
 
   def sign_up(email = 'test@test.com', name = 'Test Test', username = 'tester',
     password = 'test1234', password_confirmation='test1234')
-    visit '/sign_up'
+    visit '/sessions/sign_up'
     fill_in 'email', with: email
     fill_in 'name', with: name
     fill_in 'username', with: username
@@ -28,7 +28,7 @@ end
 
   def post_a_peep(n = 1, peep_text = 'This is a test peep')
     n.times do |i|
-      click_on("Compose a Peep")
+      click_on('Compose a Peep')
       fill_in 'peep_text', with: peep_text+" #{i+1}"
       click_on('Post your peep')
     end
