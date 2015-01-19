@@ -32,9 +32,9 @@ header {
     text-align: right;
   }
 
-table #peeps-table {
+table {
   border-width: 2px;
   border-color: DarkOliveGreen;
-  font-size: 3em;
+  font-size: 1em;
   padding: 5px;
 }

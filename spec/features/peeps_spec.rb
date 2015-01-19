@@ -25,7 +25,7 @@ feature 'Peeps' do
     sign_up
     post_a_peep(10)
     10.times do |n|
-      expect(page.all('tr')[1+(4*n)]).to have_content("This is a test peep #{10-n}")
+      expect(page.all('tr')[1+(3*n)]).to have_content("This is a test peep #{10-n}")
     end
   end
 

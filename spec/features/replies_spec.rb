@@ -22,7 +22,7 @@ feature 'Replies' do
     post_a_peep
     post_a_reply(3)
     3.times do |i|
-      expect(page.all('tr')[5+(3*i)]).to have_content("This is a test reply #{i+1}")
+      expect(page.all('tr')[4+(3*i)]).to have_content("This is a test reply #{i+1}")
     end
   end
 
