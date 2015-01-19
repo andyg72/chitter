@@ -1,18 +1,20 @@
 <table id="peeps-table">
-  <th colspan="3">Latest peeps:</th>
+  <th colspan="5">Latest peeps:</th>
   <% @last_ten_peeps.each_with_index do |peep, i| %>
     <% user = User.first(id: peep.user_id) %>
     <tr><td id="peep-user"><%= "#{user.name} (#{user.username}) peeped:" %></td>
-      <td id="peep-text"><%= "#{peep.peep_text}" %></td>
-      <td id="peep-reply" rowspan="2">
+      <td colspan="2" id="peep-text"><%= "#{peep.peep_text}" %></td>
+      <td id="peep-time"><%= "at #{peep.peep_timestamp.strftime("%H:%M on %A %B %d %Y")}" %></td>
+      <td id="peep-reply">
         <a id="peep-reply-link" href="<%= "/peeps/create_reply/#{peep.id}" %>"><%= "reply" %></a></td></tr>
-    <tr><td colspan="2" id="peep-time"><%= "at #{peep.peep_timestamp.strftime("%H:%M on %A %B %d %Y")}" %></td></tr>
     <% reply = Reply.all(peep_id: peep.id, order: [:reply_timestamp.asc]) %>
     <% reply.each do |reply| %>
       <% user = User.first(id: reply.user_id) %>
-      <tr><td id="reply-user"><%= "#{user.name} (#{user.username}) replied:" %></td>
-          <td colspan="2" id="reply-text"><%= "#{reply.reply_text}" %></td></tr>
-      <tr><td colspan="3" id="reply-time"><%= "at #{reply.reply_timestamp.strftime("%H:%M on %A %B %d %Y")}" %></td></tr>
+      <tr><td id="reply-offset"></td>
+          <td id="reply-user"><%= "#{user.name} (#{user.username}) replied:" %></td>
+          <td id="reply-text"><%= "#{reply.reply_text}" %></td>
+          <td id="reply-time"><%= "at #{reply.reply_timestamp.strftime("%H:%M on %A %B %d %Y")}" %></td>
+          <td id="reply-link-offset"></td></tr>
     <% end %>
   <% end %>
 </table>
