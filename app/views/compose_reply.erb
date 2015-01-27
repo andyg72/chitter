@@ -7,12 +7,12 @@
         <td id="peep-time"><%= "at #{peep.peep_timestamp.strftime("%H:%M on %A %B %d %Y")}" %></td></tr>
 </table>
 
-<form id="compose-reply" action='/peeps/post_reply' method="post">
+<form id="compose-reply-form" action='/peeps/post_reply' method="post">
   Compose your reply (try to keep below 140ish characters)
   <input type="submit" value="Post your reply">
   <input type="hidden" name="user_id" value=<%= "#{@user_id}" %>>
   <input type="hidden" name="peep_id" value=<%= "#{@peep_id}" %>>
 </form>
-<textarea rows="3" cols="50" name="reply_text" form="compose-reply">
+<textarea rows="3" cols="50" name="reply_text" form="compose-reply-form">
   Put your reply here...
 </textarea>

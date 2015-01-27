@@ -26,3 +26,8 @@ fieldset > #submit {
       text-decoration: none;
       padding: 5px;
 }
+
+textarea, #compose-peep-form, #compose-reply-form {
+  margin-left: 10%;
+  margin-top: 2em;
+}

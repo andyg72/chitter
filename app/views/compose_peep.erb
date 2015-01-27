@@ -1,9 +1,9 @@
-<form id="compose-peep" action='/peeps/post_peep' method="post">
+<form id="compose-peep-form" action='/peeps/post_peep' method="post">
   Compose your peep (try to keep below 140ish characters)
   <input type="submit" value="Post your peep">
   <input type="hidden" name="user_id" value=<%= "#{@user_id}" %>>
 </form>
-<textarea rows="3" cols="50" name="peep_text" form="compose-peep">
+<textarea rows="3" cols="50" name="peep_text" form="compose-peep-form">
   Put your peep here...
 </textarea>
 

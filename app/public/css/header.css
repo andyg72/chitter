@@ -16,7 +16,6 @@ header {
   width: 40%;
   text-align: left;
   float: left;
-  font-variant: small-caps;
 }
 
 #logo-link:link, #logo-link:visited, #logo-link:hover, #logo-link:active {
