@@ -42,3 +42,19 @@ If you have time you can implement the following:
 And/Or:
 
 * Work on the css to make it look good (we all like beautiful things).
+ 
+#Notes on completion of the challenge
+Built in Ruby / Sinatra with DataMapper / Postgres
+To use, clone the repositorary, rackup and go to the local host (that rackup gives you) in the browser.
+
+- pretty happy with this, kept it simple
+- comfortable with the display getting the peeps in most recent first and replies in chronological order.
+
+##Things I learnt;
+- use of datamapper linked to postgres to store / retrieve data
+- password salting & hashing through BCrypt
+- some basic CSS / HTML
+
+##Areas to improve
+- CSS layout, overall design OK, but needs some tightening up, refactoring
+- Currently development environment database is not writing peep_text (but is other fields) but is working OK in test environment, proven through RSpec testing.
