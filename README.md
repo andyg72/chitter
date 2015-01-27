@@ -56,5 +56,4 @@ To use, clone the repositorary, rackup and go to the local host (that rackup giv
 - some basic CSS / HTML
 
 ##Areas to improve
-- CSS layout, overall design OK, but needs some tightening up, refactoring
-- Currently development environment database is not writing peep_text (but is other fields) but is working OK in test environment, proven through RSpec testing.
+- CSS layout, overall design OK, but needs some tightening up, refactoring.
