@@ -1,6 +1,6 @@
 <table id="peeps-table">
   <th colspan="5">Latest peeps:</th>
-  <% @last_ten_peeps.each_with_index do |peep, i| %>
+  <% @last_ten_peeps.each do |peep| %>
     <% user = User.first(id: peep.user_id) %>
     <tr><td id="peep-user"><%= "#{user.name} (#{user.username}) peeped:" %></td>
       <td colspan="2" id="peep-text"><%= "#{peep.peep_text}" %></td>

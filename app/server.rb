@@ -27,7 +27,6 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @last_ten_peeps = Peep.all(limit:10, order: [:peep_timestamp.desc])
-    # Peeps.all.sort{|a,b| a.peep_timestamp <=> b.peep_timestamp}
     erb :index
   end
 
@@ -41,6 +40,19 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
 
+  post '/sessions/sign_up' do
+    @user = User.create(email: params[:email], name: params[:name],
+      username: params[:username], password: params[:password],
+      password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/')
+    else
+      flash[:errors] = @user.errors.full_messages
+      redirect to('/sessions/sign_up')
+    end
+  end
+
   get '/sessions/sign_in' do
     erb :sign_in
   end
@@ -52,19 +64,8 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/')
     else
-      flash.now[:errors] = ['Failed to log in with those details, please try again']
-    end
-  end
-
-  post '/sessions/registration' do
-    @user = User.create(email: params[:email], name: params[:name],
-      username: params[:username], password: params[:password],
-      password_confirmation: params[:password_confirmation])
-    if @user.save
-      session[:user_id] = @user.id
-      redirect to('/')
-    else
-      flash.now[:errors] = @user.errors.full_messages
+      flash[:errors] = ['Failed to log in with those details, please try again']
+      redirect to('/sessions/sign_in')
     end
   end
 
@@ -78,7 +79,8 @@ class Chitter < Sinatra::Base
     if @peep.save
       redirect to('/')
     else
-      flash.now[:errors] = @peep.errors.full_messages
+      flash[:errors] = @peep.errors.full_messages
+      redirect to('/peeps/compose_peep')
     end
   end
 
@@ -94,7 +96,8 @@ class Chitter < Sinatra::Base
     if @reply.save
       redirect to('/')
     else
-      flash.now[:errors] = @reply.errors.full_messages
+      flash[:errors] = @reply.errors.full_messages
+      redirect to("/peeps/compose_reply/#{params[:pee]}")
     end
   end
 
